@@ -2932,10 +2932,10 @@ details-disclosure > details {
 }
 
 .gradient {
-  /* background: rgb(var(--color-background));
-  background: var(--gradient-background); */
+  background: rgb(var(--color-background));
+  background: var(--gradient-background);
   background-attachment: fixed;
-  background-color: brown;
+  /* background-color: brown; */
 }
 
 @media screen and (forced-colors: active) {
