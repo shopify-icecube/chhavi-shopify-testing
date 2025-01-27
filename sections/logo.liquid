@@ -1,0 +1,77 @@
+<div class="logo_section">
+  <h1>{{ section.settings.heading_main }}</h1>
+  <section class="custom-section">
+  {% for block in section.blocks %}
+    <div class="block">
+      {% if block.type == 'image' %}
+        <div class="image-block">
+          <img src="{{ block.settings.image | img_url: 'master' }}" alt="Image block" height="40px" width="40px">
+        </div>
+      {% elsif block.type == 'text' %}
+        <div class="text-block">
+          <p>{{ block.settings.text_content }}</p>
+        </div>
+      {% elsif block.type == 'description' %}
+        <div class="description-block">
+          <p>{{ block.settings.description_content }}</p>
+        </div>
+      {% endif %}
+    </div>
+  {% endfor %}
+</section>
+</div>
+{% schema %}
+  {
+    "name": "Logo Images Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "heading_main",
+        "label": "Main Heading"
+      }
+    ],
+    "blocks": [
+    {
+      "type": "image",
+      "name": "Image Block",
+      "settings": [
+        {
+          "type": "image_picker",
+          "label": "Image",
+          "id": "image"
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "text",
+          "label": "Text Content",
+          "id": "text_content",
+          "default": "Enter your text here"
+        }
+      ]
+    },
+    {
+      "type": "description",
+      "name": "Description Block",
+      "settings": [
+        {
+          "type": "textarea",
+          "label": "Description",
+          "id": "description_content",
+          "default": "Enter your description here"
+        }
+      ]
+    }
+  ],
+    "presets": [
+      {
+        "name": "Logo Images Section",
+        "category": "Logo Images"
+      }
+    ]
+  }
+{% endschema %}
