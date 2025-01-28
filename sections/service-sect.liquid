@@ -1,0 +1,64 @@
+<div class="service-section" style="background-image:url({{ section.settings.background_img | img_url:'master' }});">
+  <h2>{{ section.settings.section_title }}</h2>
+  {% for block in section.blocks %}
+    <div class="service-block">
+      <h4>{{ block.settings.block_heading }}</h4>
+      <p>{{ block.settings.block_description }}</p>
+      <a href="{{ block.settings.btn_link }}" class="service-button">{{ block.settings.btn_text }}</a>
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+  {
+    "name": "Service Section",
+    "settings": [
+      {
+        "type": "text",
+        "id": "section_title",
+        "label": "Section Title"
+      },
+      {
+        "type": "image_picker",
+        "id": "background_img",
+        "label": "Background Image"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "text",
+        "name": "Service Block",
+        "settings": [
+          {
+            "type": "text",
+            "id": "block_heading",
+            "label": "Block Heading"
+          },
+          {
+            "type": "textarea",
+            "id": "block_description",
+            "label": "Block Description"
+          },
+          {
+            "type": "text",
+            "id": "btn_text",
+            "label": "Button Text",
+            "default": "Learn More"
+          },
+          {
+            "type": "url",
+            "id": "btn_link",
+            "label": "Button Link",
+            "default": "/"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Default Service Section",
+        "category": "Service"
+      }
+    ]
+  }
+{% endschema %}
